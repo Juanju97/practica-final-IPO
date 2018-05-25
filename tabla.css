@@ -1,5 +1,22 @@
+html, body {
+	height: 100%;
+}
+
 body {
 	max-width: 100%;
+}
+
+img {
+	height: 10%;
+	width: 10%;
+}
+
+.img_rotated {
+	transform: rotate(90deg);
+}
+
+p {
+	margin: 0;
 }
 
 .nav-menu {
@@ -11,7 +28,7 @@ body {
 	padding-top: 15px;
 	padding-bottom: 15px;
 	font-size: 20px;
-	background-color: rgb(41,171,226);
+	background-color: rgba(41,171,226, 0.7);
 }
 
 .menu a {
@@ -22,14 +39,12 @@ body {
 	color: white;
 }
 
-div {
-	padding: 0px;
-}
-
 .content {
 	background-image: url('calle.jpg');
+	background-size: cover;
 	position: fixed;
 	height: 100%;
+	width: 100%;
 	padding: 0px;
 }
 
@@ -41,11 +56,56 @@ div {
 	height: 100%;
 	padding: 0;
 	margin: 0;
-	background-color: rgba(204,204,204,0.5);
+	background-color: rgba(204,204,204,0.3);
+}
+
+.pre-tabla {
+	height: 100%;
 }
 
 .tabla {
+	height: 80%;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 5%;
+	margin-bottom: 20%;
 	border-style: solid;
-	border-radius: 3px;
-	margin: 50px 0px;
+	color: black;
+	background-color: rgba(210,210,210,0.7);
+	font-size: 20px;
+	padding: 0px;
 }
+
+.tabla > .row {
+	height: 100%;
+	margin: auto;
+}
+
+.columna_tabla {
+	height: 100%;
+	padding: 0;
+	border-style: solid;
+}
+
+
+.task {
+	border-style: solid;
+	border-radius: 30px;
+	padding: 15px 20px;
+	margin: 15px;
+	background-color: white;
+}
+
+.task_body {
+	padding: 15px;
+}
+
+.task_item {
+	margin-left: 5px;
+}
+
+
+
+
+

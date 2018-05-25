@@ -26,6 +26,7 @@
 			.description {
 				text-align: center;
 				padding-bottom: 0px;
+				opacity: 0.9;
 			}
 
 			.jsCalendar.clean-theme tbody td.jsCalendar-previous, .jsCalendar.clean-theme tbody td.jsCalendar-next {
@@ -71,18 +72,25 @@
 			}
 
 			#wrapper {
-				margin-top: 5%;
-				margin-right: 10%;
-				margin-left: 10%;
+				margin-top: 5px;
+				margin-right: 5%;
+				margin-left: 5%;
 				padding: 0px;
-				width: 80%;
-				height: 600px;
+				height: 400px;
+				box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+			}
+			#wrapper2 {
+				margin-right: 5%;
+				margin-left: 5%;
+				padding: 0px;
 				box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
 			}
 			#wrapper .jsCalendar table {
 				box-shadow: none;
 				width: 100%;
 				height: 490px;
+				padding-left: 5%;
+				padding-right:5%;
 			}
 			.clear {
 				clear: both;
@@ -140,7 +148,7 @@
 				cursor: pointer;
 			}
 			#events .action {
-				text-align: right;
+				text-align: center;
 			}
 			#events .action input {
 				padding: 0px 5px;
@@ -150,7 +158,7 @@
 				height: 28px;
 				line-height: 28px;
 				width: 120px;
-				background: #f8f8f8;
+				background: #f8f8f8;;
 				color: black;
 				cursor: pointer;
 				transition: all 0.2s;
@@ -160,36 +168,46 @@
 				border: 1px solid #000;
 				box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
 			}
+			#myBtn{
+				width: 100%;
+				background-color: #52c9ff;
+				margin: 0px;
+				padding: 0px;
+				opacity: 0.9;
+				color: white;
+			}
 		</style>
 	</head>
 	<body>
-		<div class="description">
-			<div class="nav-menu container-fluid">
-			    <div class="row menu">
-			      <div class="col-lg-3">
-			        <a href="#">Calendario</a>
-			      </div>
-			      <div class="col-lg-3">
-			        <a href="#">Tabla</a>
-			      </div>
-			      <div class="col-lg-3">
-			        <a href="#">Productividad</a>
-			      </div>
-			      <div class="col-lg-3">
-			        <a href="#">Ajustes</a>
-			      </div>
-			    </div>
-  			</div>
-		</div>
 
 		<!-- Wrapper -->
 		<div id="wrapper">
+			<div class="description">
+				<div class="nav-menu container-fluid">
+				    <div class="row menu">
+				      <div class="col-lg-3">
+				        <a href="#">Calendario</a>
+				      </div>
+				      <div class="col-lg-3">
+				        <a href="#">Tabla</a>
+				      </div>
+				      <div class="col-lg-3">
+				        <a href="#">Productividad</a>
+				      </div>
+				      <div class="col-lg-3">
+				        <a href="#">Ajustes</a>
+				      </div>
+				    </div>
+	  			</div>
+			</div>
 			<!-- Calendar element -->
 			<div id="events-calendar"></div>
 			<!-- Clear -->
 			<div class="clear"></div>
 		</div>
-		<button id="myBtn">Añadir Tarea</button>
+		<div id="wrapper2">
+			<button id="myBtn">Añadir Tarea</button>
+		</div>
 		<!-- The Modal -->
 		<div id="myModal" class="modal">
 
@@ -263,7 +281,7 @@
 			elements.events.appendChild(elements.actions);
 			elements.addButton = document.createElement("input");
 			elements.addButton.type = "button";
-			elements.addButton.value = "Add";
+			elements.addButton.value = "Añadir";
 			elements.actions.appendChild(elements.addButton);
 
 			var events = {};
@@ -282,7 +300,7 @@
 				// Add events on list
 				if (events.hasOwnProperty(id) && events[id].length) {
 					// Number of events
-					elements.subtitle.textContent = events[id].length + " " + ((events[id].length > 1) ? "events" : "event");
+					elements.subtitle.textContent = events[id].length + " " + ((events[id].length > 1) ? "events" : "eventos");
 
 					var div;
 					var close;
@@ -347,7 +365,7 @@
 				// Get event name
 				var names = ["John", "Bob", "Anna", "George", "Harry", "Jack", "Alexander"];
 				var name = prompt(
-					"Event info",
+					"Información del evento",
 					names[Math. floor(Math.random() * names.length)] + "'s birthday."
 				);
 

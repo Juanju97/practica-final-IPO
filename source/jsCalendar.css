@@ -48,7 +48,7 @@
 			padding: 0px;
 			box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
 			border-radius: 4px;
-			opacity: 0.8;
+			opacity: 0.9;
 		}
 		.jsCalendar thead .jsCalendar-title {
 			height: 40px;
@@ -89,8 +89,8 @@
 		.jsCalendar thead .jsCalendar-title-name {
 			font-size: 24px;
 			font-weight: lighter;
-			float: left;
-			padding: 0px 20px;
+			float: center;
+			padding: 0px 0px;
 			cursor: default;
 		}
 		.jsCalendar thead .jsCalendar-nav-left:after {
@@ -105,13 +105,12 @@
 			text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
 		}
 		.jsCalendar thead .jsCalendar-week-days tr{
-			width: 400px;
 		}
 		.jsCalendar thead .jsCalendar-week-days th,
 		.jsCalendar tbody td {
 			display: inline-block;
-			height: 75px;
-			width: 149px;
+			height: 60px;
+			width: 168px;
 			margin: 1px 2px;
 			line-height: 36px;
 			text-align: center;
@@ -126,8 +125,8 @@
 		}
 		.jsCalendar tbody td.jsCalendar-selected {
 			background-color: #52ffff;
-			height: 70px;
-			width: 175px;
+			height: 60px;
+			width: 168px;
 			line-height: 32px;
 		}
 		.jsCalendar tbody td.jsCalendar-current {

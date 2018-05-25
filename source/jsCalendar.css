@@ -1,21 +1,21 @@
 /*
  * jsCalendar v1.4.2
- * 
- * 
+ *
+ *
  * MIT License
- * 
+ *
  * Copyright (c) 2018 Grammatopoulos Athanasios-Vasileios
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -23,7 +23,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- * 
+ *
  */
 
 
@@ -44,9 +44,11 @@
 			background-color: #ffffff;
 			border-collapse: collapse;
 			font-family: Tahoma, Geneva, sans-serif;
-			margin: 5px;
+			margin: 0px;
+			padding: 0px;
 			box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
 			border-radius: 4px;
+			opacity: 0.8;
 		}
 		.jsCalendar thead .jsCalendar-title {
 			height: 40px;
@@ -61,7 +63,7 @@
 		.jsCalendar thead .jsCalendar-nav-left,
 		.jsCalendar thead .jsCalendar-nav-right {
 			font-family: "Courier New", Courier, monospace;
-			font-size: 12px;
+			font-size: 24px;
 			font-weight: bold;
 			height: 20px;
 			width: 20px;
@@ -85,7 +87,7 @@
 			float: right;
 		}
 		.jsCalendar thead .jsCalendar-title-name {
-			font-size: 18px;
+			font-size: 24px;
 			font-weight: lighter;
 			float: left;
 			padding: 0px 20px;
@@ -93,9 +95,11 @@
 		}
 		.jsCalendar thead .jsCalendar-nav-left:after {
 			content: "<";
+			font-size: 35px;
 		}
 		.jsCalendar thead .jsCalendar-nav-right:after {
 			content: ">";
+			font-size: 35px;
 		}
 		.jsCalendar thead .jsCalendar-week-days th {
 			text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
@@ -103,12 +107,12 @@
 		.jsCalendar thead .jsCalendar-week-days th,
 		.jsCalendar tbody td {
 			display: inline-block;
-			height: 36px;
-			width: 36px;
+			height: 75px;
+			width: 149px;
 			margin: 1px 2px;
 			line-height: 36px;
 			text-align: center;
-			font-size: 12px;
+			font-size: 24px;
 			font-weight: lighter;
 			cursor: default;
 			transition: color 0.1s, background-color 0.2s;
@@ -118,10 +122,9 @@
 			background-color: #e6e6e6;
 		}
 		.jsCalendar tbody td.jsCalendar-selected {
-			border: 2px solid #e6e6e6;
-			background-color: #ffffff;
-			height: 32px;
-			width: 32px;
+			background-color: #52ffff;
+			height: 70px;
+			width: 175px;
 			line-height: 32px;
 		}
 		.jsCalendar tbody td.jsCalendar-current {
@@ -204,6 +207,7 @@
 			padding: 4px 4px 0px 4px;
 			background-color: #52c9ff;
 			color: #ffffff;
+
 		}
 		.jsCalendar.material-theme thead .jsCalendar-title {
 			display: block;
@@ -215,8 +219,8 @@
 			position: absolute;
 			left: 15px;
 			right: 15px;
-			font-size: 16px;
-			border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+			font-size: 30px;
+			border-bottom: 4px solid rgba(255, 255, 255, 0.4);
 		}
 		.jsCalendar.material-theme thead .jsCalendar-title-left,
 		.jsCalendar.material-theme thead .jsCalendar-title-right {
@@ -235,7 +239,7 @@
 			right: 0px;
 		}
 		.jsCalendar.material-theme thead .jsCalendar-week-days th {
-			font-size: 14px;
+			font-size: 30px;
 			text-shadow: none;
 		}
 	/* Yellow */
@@ -353,7 +357,7 @@
 			background-color: #ccefff;
 		}
 		.jsCalendar.classic-theme tbody td.jsCalendar-current.jsCalendar-selected{
-			background-color: #52c9ff; 
+			background-color: #52c9ff;
 			text-shadow: 0px 0px 3px #000000;
 		}
 	/* Yellow */

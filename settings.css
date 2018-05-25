@@ -1,5 +1,5 @@
 .nav-menu {
-	width: 100%;
+	width: 97.8%;
 }
 
 .menu {
@@ -25,6 +25,7 @@
 	height: 100%;
 	width: 100%;
 	padding: 0px;
+
 }
 
 .container-fluid {
@@ -37,8 +38,17 @@
 	margin: 0;
 	background-color: rgba(204,204,204,0.3);
 }
-
-
+label{
+	color: black;
+}
+.tile {
+	border-style: solid;
+	border-radius: 30px;
+	padding: 15px 20px;
+	margin: 15px;
+	background-color: white;
+	width: 100%;
+}
 
 /* The switch - the box around the slider */
 .switch {

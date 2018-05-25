@@ -1,3 +1,45 @@
+.nav-menu {
+	width: 100%;
+}
+
+.menu {
+	text-align: center; 
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-size: 20px;
+	background-color: rgb(41,171,226);
+}
+
+.menu a {
+	color: white;
+}
+
+.menu a:hover {
+	color: white;
+}
+.content {
+	background-image: url('calle.jpg');
+
+	position: fixed;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	padding: 0px;
+}
+
+.container-fluid {
+	padding: 0;
+}
+
+.overlay {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: rgba(204,204,204,0.3);
+}
+
+
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;

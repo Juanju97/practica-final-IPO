@@ -1,8 +1,8 @@
 
 body {
-	background-image: url(../img/fondo_calle.jpg);
-	background-color: rgba(90,90,90,0.6);
+	z-index: 3;
 }
+
 
 .nav-menu {
 	width: 100%;
@@ -14,14 +14,39 @@ body {
 	padding-bottom: 15px;
 	font-size: 20px;
 	background-color: rgb(41,171,226);
+	z-index: 3;
 }
 
 .menu a {
 	color: white;
+	z-index: 0;
 }
 
 .menu a:hover {
-	color: white;
+	text-decoration: none;
+	color: grey;
+}
+
+.section {
+
+	position: absolute;
+	padding: 0;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-image: url(../img/fondo_calle.jpg);
+	height: 100%;
+	z-index: 2;
+}
+
+.overlay {
+	position: relative;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+  	background-color: rgba(204,204,204,0.3);
+  	z-index: 0;
 }
 
 #chart-div {

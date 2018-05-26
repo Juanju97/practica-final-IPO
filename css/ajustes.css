@@ -1,53 +1,89 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  max-width: 100%;
+}
+
+p {
+  margin: 0;
+}
+
+label {
+  margin: 0px;
+}
+
 .nav-menu {
-	width: 97.8%;
+  width: 100%;
 }
 
 .menu {
-	text-align: center; 
-	padding-top: 15px;
-	padding-bottom: 15px;
-	font-size: 20px;
-	background-color: rgb(41,171,226);
+  text-align: center; 
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+  background-color: rgba(41,171,226, 0.7);
 }
 
 .menu a {
-	color: white;
+  color: white;
 }
 
 .menu a:hover {
-	color: white;
+  color: white;
 }
+
 .content {
-	background-image: url('calle.jpg');
-
-	position: fixed;
-	background-size: cover;
-	height: 100%;
-	width: 100%;
-	padding: 0px;
-
+  background-image: url('../calle.jpg');
+  background-size: cover;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  padding: 0px;
 }
 
 .container-fluid {
-	padding: 0;
+  padding: 0;
 }
 
 .overlay {
-	height: 100%;
-	padding: 0;
-	margin: 0;
-	background-color: rgba(204,204,204,0.3);
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(204,204,204,0.3);
 }
-label{
-	color: black;
+
+.pre-ajustes {
+  height: 100%;
 }
-.tile {
-	border-style: solid;
-	border-radius: 30px;
-	padding: 15px 20px;
-	margin: 15px;
-	background-color: white;
-	width: 100%;
+
+.ajustes {
+  height: 80%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  margin-bottom: 20%;
+  color: black;
+  font-size: 20px;
+  padding: 0px;
+}
+
+.ajustes > .row {
+  margin: auto;
+} 
+
+.ajuste {
+  border-style: solid;
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin: 5% 0% 5% 0%;
+  background-color: white;
+}
+
+.titluo_ajuste {
+  width: 100%;
 }
 
 /* The switch - the box around the slider */
@@ -88,7 +124,7 @@ label{
 input:checked + .slider {
   background-color: rgb(0,212,70);
 }
-/*0,212,70*/
+
 input:focus + .slider {
   box-shadow: 0 0 1px rgb(0,212,70);
 }

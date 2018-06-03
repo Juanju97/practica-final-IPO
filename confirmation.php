@@ -63,8 +63,8 @@
 
 <div style="display:none;" id="myDiv" class="animate-bottom">
   <h2>Listo</h2>
-  <p>ponte el anillo en el dedo para configurar identificarte con la huella</p>
-   <a href="calendar.html">continuar</a> 
+  <p>Ponte el anillo en el dedo para identificarte con la huella.</p>
+   <a href="calendar.html">Continuar</a> 
 </div>
 
 <script>

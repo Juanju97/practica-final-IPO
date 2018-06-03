@@ -3,6 +3,10 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
+body   {
+  background-color: #D1EAFF;
+}
 /* Center the loader */
 #loader {
   position: absolute;
@@ -63,8 +67,8 @@
 
 <div style="display:none;" id="myDiv" class="animate-bottom">
   <h2>Listo</h2>
-  <p>ponte el anillo en el dedo para configurar identificarte con la huella</p>
-   <a href="calendar.html">continuar</a> 
+  <p>Ponte el anillo en el dedo para identificarte con la huella.</p>
+   <a href="calendar.html" style="">Continuar</a> 
 </div>
 
 <script>

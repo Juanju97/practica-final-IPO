@@ -7,80 +7,128 @@
 	<link rel="stylesheet" type="text/css" href="css/productividad.css">
 
 	<!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Visitations'],
-          ['2010', 10],
-          ['2020', 14],
-          ['2030', 16],
-          ['2040', 22],
-          ['2050', 28]
-        ]);
-
-        var options = {
-          width: 600,
-          height: 400,
-          legend: { position: 'none' },
-          chart: {
-            title: 'Chess opening moves',
-            subtitle: 'popularity by percentage' },
-          axes: {
-            x: {
-              0: { side: 'bottom', label: 'Tareas'} // Top x-axis.
-            },
-            y: {
-              0: {side: 'left', label: 'Tiempo estimado'}
-            }
-          },
-          bar: { groupWidth: "15%", color: "silver"}
-        };
-
-
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
-
-
-    </script>
 </head>
 <body>
-  <div class="wrapper">
+
+	<div class="content">
+		<div class="nav-menu container-fluid">
+			<div class="row menu">
+				<div class="col-lg-3 col-sm-3">
+					<a href="calendario.html">Calendario</a>
+				</div>
+				<div class="col-lg-3 col-sm-3">
+					<a href="tabla.html">Tabla</a>
+				</div>
+				<div class="col-lg-3 col-sm-3">
+					<a href="#">Productividad</a>
+				</div>
+				<div class="col-lg-3 col-sm-3">
+					<a href="ajustes.html">Ajustes</a>
+				</div>
+			</div>
+		</div>
+		<div class="overlay">
+			<div class="row container-fluid pre-grafica">
+				<div class="col-10 grafica">
+					<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+  
+
+
+  <!--<div class="content">
       <div class="nav-menu container-fluid">
-        <div class="row menu">
-          <div class="col-lg-3 navbar-item">
-            <a href="calendario.html">Calendario</a>
-          </div>
-          <div class="col-lg-3 navbar-item">
-            <a href="tabla.html">Tabla</a>
-          </div>
-          <div class="col-lg-3 navbar-item">
-            <a href="productividad.html">Productividad</a>
-          </div>
-          <div class="col-lg-3 navbar-item">
-            <a href="ajustes.html">Ajustes</a>
-          </div>
-        </div>
-      </div>
+			<div class="row menu">
+				<div class="col-lg-3 col-sm-3">
+					<a href="calendario.html">Calendario</a>
+				</div>
+				<div class="col-lg-3 col-sm-3">
+					<a href="tabla.html">Tabla</a>
+				</div>
+				<div class="col-lg-3 col-sm-3">
+					<a href="#">Productividad</a>
+				</div>
+				<div class="col-lg-3 col-sm-3">
+					<a href="ajustes.html">Ajustes</a>
+				</div>
+			</div>
+		</div>
 
       <div class="section container-fluid">
         <div class="overlay">
           <div class="col-lg-6 chart">
             <div id="columnchart_material"></div>
           </div>
-          <div class="col-lg-6 table">
+          <div class="col-lg-6 table"></div>
       </div>
-  </div>  
+  </div>  -->
 	
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript">
+      $(function () {
+        $('#container').highcharts({
+          title: {
+            text: 'Burndown Chart',
+            x: -20 //center
+          },
+          colors: ['blue', 'red'],
+          plotOptions: {
+            line: {
+              lineWidth: 3
+            },
+            tooltip: {
+              hideDelay: 200
+            }
+          },
+          subtitle: {
+            text: 'Sprint 1',
+            x: -20
+          },
+          xAxis: {
+            categories: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6',
+                         'Day 7', 'Day 8', 'Day 9', 'Day 10']
+          },
+          yAxis: {
+            title: {
+              text: 'Hours'
+            },
+            plotLines: [{
+              value: 0,
+              width: 1
+            }]
+          },
+          tooltip: {
+            valueSuffix: ' hrs',
+            crosshairs: true,
+            shared: true
+          },
+          legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+          },
+          series: [{
+            name: 'Ideal Burn',
+            color: 'rgba(255,0,0,0.25)',
+            lineWidth: 2,
+            data: [100, 90, 80, 70, 60, 50, 40, 30, 20, 10]
+          }, {
+            name: 'Actual Burn',
+            color: 'rgba(0,120,200,0.75)',
+            marker: {
+              radius: 6
+            },
+            data: [100, 110, 85, 60, 60, 30, 32, 23, 9, 2]
+          }]
+        });
+      });
+    </script>
 </body>
 </html>
 

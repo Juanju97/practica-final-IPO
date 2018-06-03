@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/GramThanos/jsCalendar/issues"
   },
-  "homepage": "https://gramthanos.github.io/jsCalendar/"
+  "homepage": "https://gramthanos.github.io/jsCalendar/",
+  "dependencies": {
+    "interactjs": "^1.3.4"
+  }
 }

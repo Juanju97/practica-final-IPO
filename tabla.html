@@ -28,32 +28,32 @@
 			<div class="row container-fluid pre-tabla">
 				<div class="col-10 tabla">
 					<div class="row">
-						<div class="col-4 columna_tabla">
+						<div id="outer-dropzone" class="col-4 columna_tabla dropzone">
 							<div class="columna_titulo">
 								<h2>To do...</h2>
 							</div>
-							<div id="task1" class="row task" draggable="true">
+							<div id="task" class="row task draggable drag-drop">
 								<p class="col-10">lorem ipsum perdi</p>
 								<img src="next.png" class="col-2">
 							</div>
-							<div id="task2" class="row task" draggable="true">
+							<div id="task" class="row task draggable drag-drop">
 								<p class="col-10">lorem ipsum perdi</p>
 								<img src="next.png" class="col-2">
 							</div>
-							<div id="task2" class="row task" draggable="true">
+							<div id="task" class="row task draggable drag-drop">
 								<p class="col-10">lorem ipsum perdi</p>
 								<img src="next.png" class="col-2">
 							</div>
-							<div id="task2" class="row task" draggable="true">
+							<div id="task" class="row task draggable drag-drop">
 								<p class="col-10">lorem ipsum perdi</p>
 								<img src="next.png" class="col-2">
 							</div>
 						</div>
-						<div class="col-4 columna_tabla">
+						<div class="col-4 columna_tabla dropzone">
 							<div class="columna_titulo">
 								<h2>Doing...</h2>
 							</div>
-							<div id="task3" class="row task" draggable="true">
+							<div id="task" class="row task draggable drag-drop">
 								<p class="col-10">lorem ipsum perdi</p>
 								<img src="next.png" class="col-2 img_rotated">
 								<div class="row task_body">
@@ -75,13 +75,13 @@
 										</div>
 									</div>
 									<div class="row task_options">
-										<div class="col-4">
+										<div class="col-4 col-sm-12 option_button">
 											<button class="btn btn-info option">To do</button>
 										</div>
-										<div class="col-4">
+										<div class="col-4 col-sm-12 option_button">
 											<button class="btn btn-warning option">Doing</button>
 										</div>
-										<div class="col-4">
+										<div class="col-4 col-sm-12 option_button">
 											<button class="btn btn-success option">Done</button>
 										</div>
 									</div>
@@ -91,15 +91,15 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-4 columna_tabla">
+						<div class="col-4 columna_tabla dropzone">
 							<div class="columna_titulo">
 								<h2>Done...</h2>
 							</div>
-							<div id="task4" class="row task" draggable="true">
+							<div id="task" class="row task draggable drag-drop">
 								<p class="col-10">lorem ipsum perdi</p>
 								<img src="next.png" class="col-2">
 							</div>
-							<div id="task5" class="row task" draggable="true">
+							<div id="task" class="row task draggable drag-drop">
 								<p class="col-10">lorem ipsum perdi</p>
 								<img src="next.png" class="col-2">
 							</div>
@@ -111,110 +111,150 @@
 	</div>
 
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+	<script src="interact.js" type="text/javascript"></script>
 
 	<script type="text/javascript">
-		function handleDragStart(e) {
 
-		    dragSrcEl = this;
+		interact('.dropzone').dropzone({
+		  // only accept elements matching this CSS selector
+		  accept: '#task',
+		  // Require a 75% element overlap for a drop to be possible
+		  overlap: 0.75,
 
-		    e.dataTransfer.effectAllowed = 'move';
-		    e.dataTransfer.setData('text/html', this.innerHTML);
-		}
+		  // listen for drop related events:
 
-		function handleDragOver(e) {
-		  if (e.preventDefault) {
-		    e.preventDefault();
+		  ondropactivate: function (event) {
+		    // add active dropzone feedback
+		    event.target.classList.add('drop-active');
+		  },
+		  ondragenter: function (event) {
+		    var draggableElement = event.relatedTarget,
+		        dropzoneElement = event.target;
+
+		    // feedback the possibility of a drop
+		    dropzoneElement.classList.add('drop-target');
+		    draggableElement.classList.add('can-drop');
+		    draggableElement.textContent = 'Dragged in';
+		  },
+		  ondragleave: function (event) {
+		    // remove the drop feedback style
+		    event.target.classList.remove('drop-target');
+		    event.relatedTarget.classList.remove('can-drop');
+		    event.relatedTarget.textContent = 'Dragged out';
+		  },
+		  ondrop: function (event) {
+		    event.relatedTarget.textContent = 'Dropped';
+		  },
+		  ondropdeactivate: function (event) {
+		    // remove active dropzone feedback
+		    event.target.classList.remove('drop-active');
+		    event.target.classList.remove('drop-target');
 		  }
-		  e.dataTransfer.dropEffect = 'move';
-		  return false;
-		}
-
-		function handleDragEnter(e) {
-		  this.classList.add('over');
-		}
-
-		function handleDragLeave(e) {
-		  this.classList.remove('over');
-		}
-
-		function handleDrop(e) {
-			if (e.stopPropagation) {
-				e.stopPropagation();
-			}
-		    if (dragSrcEl != this) {
-				if (this.className.localeCompare("row task") != 0) {
-					this.appendChild(dragSrcEl);
-				}
-		    }
-			return false;
-		}
-
-		function handleDragEnd(e) {
-		  [].forEach.call(tasks, function (task) {
-		    task.classList.remove('over');
-		  });
-		}
-
-		function handleTouchStart(e) {
-			dragSrcEl = this;
-
-			alert("Perdi");
-
-		    e.dataTransfer.effectAllowed = 'move';
-		    e.dataTransfer.setData('text/html', this.innerHTML);
-		}
-
-		function handleTouchEnd(e) {
-			
-		}
-
-		function handleTouchCancel(e) {
-			
-		}
-
-		function handleTouchLeave(e) {
-			if (e.stopPropagation) {
-				e.stopPropagation();
-			}
-			alert("perdi");
-		    if (dragSrcEl != this) {
-				if (this.className.localeCompare("row task") != 0) {
-					this.appendChild(dragSrcEl);
-				}
-		    }
-			return false;
-		}
-
-		function handleTouchMove(e) {
-			dragSrcEl = this;
-
-			e.dataTransfer.effectAllowed = 'move';
-			e.dataTransfer.setData('text/html', this.innerHTML);
-		}
-
-		var tasks = document.querySelectorAll('.columna_tabla .task');
-		[].forEach.call(tasks, function(task) {
-			task.addEventListener('dragstart', handleDragStart, false);
-			task.addEventListener('dragenter', handleDragEnter, false)
-			task.addEventListener('dragover', handleDragOver, false);
-			task.addEventListener('dragleave', handleDragLeave, false);
-			task.addEventListener('drop', handleDrop, false);
-			task.addEventListener('dragend', handleDragEnd, false);
-			task.addEventListener("touchstart", handleStart, false);
-			task.addEventListener("touchend", handleEnd, false);
-			task.addEventListener("touchcancel", handleCancel, false);
-			task.addEventListener("touchleave", handleLeave, false);
-			task.addEventListener("touchmove", handleMove, false);
 		});
 
-		var cols = document.querySelectorAll('.columna_tabla');
-		[].forEach.call(cols, function(col) {
-			col.addEventListener('dragenter', handleDragEnter, false);
-			col.addEventListener('dragleave', handleDragLeave, false);
-			col.addEventListener('drop', handleDrop, false);
-			col.addEventListener('dragover', handleDragOver, false);
-			col.addEventListener('dragend', handleDragEnd, false);
-		})
+
+
+
+
+
+		// function touchHandler(event)
+		// {
+		//     var touches = event.changedTouches,
+		//         first = touches[0],
+		//         type = "";
+		//          switch(event.type)
+		//     {
+		//         case "touchstart": type="mousedown"; break;
+		//         case "touchmove":  type="mousemove"; break;        
+		//         case "touchend":   type="mouseup"; break;
+		//         default: return;
+		//     }
+		 
+		//     var simulatedEvent = document.createEvent("MouseEvent");
+		//     simulatedEvent.initMouseEvent(type, true, true, window, 1, 
+		//                               first.screenX, first.screenY, 
+		//                               first.clientX, first.clientY, false, 
+		//                               false, false, false, 0/*left*/, null);
+		//     first.target.dispatchEvent(simulatedEvent);
+		//     event.preventDefault();
+		// }
+
+		// function init() 
+		// {
+		//     document.addEventListener("touchstart", touchHandler, true);
+		//     document.addEventListener("touchmove", touchHandler, true);
+		//     document.addEventListener("touchend", touchHandler, true);
+		//     document.addEventListener("touchcancel", touchHandler, true);    
+		// }
+
+		// function handleDragStart(e) {
+
+		//     dragSrcEl = this;
+
+		//     e.dataTransfer.effectAllowed = 'move';
+		//     e.dataTransfer.setData('text/html', this.innerHTML);
+		// }
+
+		// function handleDragOver(e) {
+		//   if (e.preventDefault) {
+		//     e.preventDefault();
+		//   }
+		//   e.dataTransfer.dropEffect = 'move';
+		//   return false;
+		// }
+
+		// function handleDragEnter(e) {
+		//   this.classList.add('over');
+		// }
+
+		// function handleDragLeave(e) {
+		//   this.classList.remove('over');
+		// }
+
+		// function handleDrop(e) {
+		// 	if (e.stopPropagation) {
+		// 		e.stopPropagation();
+		// 	}
+		//     if (dragSrcEl != this) {
+		// 		if (this.className.localeCompare("row task") != 0) {
+		// 			this.appendChild(dragSrcEl);
+		// 		}
+		//     }
+		// 	return false;
+		// }
+
+		// function handleDragEnd(e) {
+		//   [].forEach.call(tasks, function (task) {
+		//     task.classList.remove('over');
+		//   });
+		// }
+
+		// var tasks = document.querySelectorAll('.columna_tabla .task');
+		// [].forEach.call(tasks, function(task) {
+		// 	// task.addEventListener('dragstart', handleDragStart, false);
+		// 	// task.addEventListener('dragenter', handleDragEnter, false)
+		// 	// task.addEventListener('dragover', handleDragOver, false);
+		// 	// task.addEventListener('dragleave', handleDragLeave, false);
+		// 	// task.addEventListener('drop', handleDrop, false);
+		// 	// task.addEventListener('dragend', handleDragEnd, false);
+
+		// 	task.addEventListener('touchstart', handleGestureStart, true);
+		// 	task.addEventListener('touchmove', handleGestureMove, true);
+		// 	task.addEventListener('touchend', handleGestureEnd, true);
+		// 	task.addEventListener('touchcancel', handleGestureEnd, true);
+
+		// 	task.id = "draggable";
+
+		// });
+
+		// var cols = document.querySelectorAll('.columna_tabla');
+		// [].forEach.call(cols, function(col) {
+		// 	col.addEventListener('dragenter', handleDragEnter, false);
+		// 	col.addEventListener('dragleave', handleDragLeave, false);
+		// 	col.addEventListener('drop', handleDrop, false);
+		// 	col.addEventListener('dragover', handleDragOver, false);
+		// 	col.addEventListener('dragend', handleDragEnd, false);
+		// })
 
 	</script>
 

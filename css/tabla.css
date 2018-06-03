@@ -73,7 +73,7 @@ p {
 	border-style: solid;
 	color: black;
 	background-color: rgba(204,204,204,0.3);
-	font-size: 20px;
+	font-size: 15px;
 	padding: 0px;
 }
 
@@ -97,7 +97,7 @@ p {
 }
 
 .columna_titulo h2 {
-	font-size: 40px;
+	font-size: 30px;
 }
 
 .task {
@@ -125,6 +125,10 @@ p {
 	width: 100%;
 }
 
+.option_button {
+	margin-top: 15px;
+}
+
 .delete_task {
 	width: 100%;
 	margin: 20px 20px 0px 20px;
@@ -140,4 +144,9 @@ p {
   -khtml-user-drag: element;
   -webkit-user-drag: element;
 }
+
+
+
+
+
 

@@ -11,6 +11,10 @@ img {
 	width: 10%;
 }
 
+textarea {
+	outline: none;
+}
+
 .img_rotated {
 	transform: rotate(90deg);
 }

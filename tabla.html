@@ -304,9 +304,9 @@
 							</div>
 						</div>
 					</div>
-					<!--<div class="row col-12">
+					<div class="row col-12">
 						<button class="col-12" id="myBtn" onclick="add();">Añadir Tarea</button>
-					</div>-->
+					</div>
 					<div class="row task clone" draggable="true" style="display: none;">
 						<label class="col-10" contenteditable="true">Nueva tarea</label>
 						<img src="next.png" class="col-2 closed" onclick="toggle(this);">
@@ -397,10 +397,16 @@
 			var div = document.getElementById("todo");
 			newtask.className = 'row task';
 			newtask.style = 'display: flex';
+			newtask.setAttribute('draggable', true);
+			newtask.addEventListener('dragstart', handleDragStart, false);
+			newtask.addEventListener('dragenter', handleDragEnter, false)
+			newtask.addEventListener('dragover', handleDragOver, false);
+			newtask.addEventListener('dragleave', handleDragLeave, false);
+			newtask.addEventListener('drop', handleDrop, false);
+			newtask.addEventListener('dragend', handleDragEnd, false);
 			div.appendChild(newtask);
 			console.log(div);
 		}
-
 
 		function handleDragStart(e) {
 		    dragSrcEl = this;

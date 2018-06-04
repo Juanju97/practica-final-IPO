@@ -43,7 +43,7 @@
 					<!-- Clear -->
 					<div class="clear"></div>
 					<button id="myBtn">Añadir Tarea</button>
-					<div id="myModal" class="modal">
+					<div id="myModal" class="modal" onclick="addtarea();">
 					  <!-- Button to add task -->
 					  <div class="modal-content">
 					    <span class="close">&times;</span>
@@ -132,6 +132,37 @@
 		var date_format = "DD/MM/YYYY";
 		var current = null;
 
+		function addtarea() {
+			// Get event name
+			var names = ["John", "Bob", "Anna", "George", "Harry", "Jack", "Alexander"];
+			var name = prompt(
+				"Información del evento",
+				names[Math. floor(Math.random() * names.length)] + "'s birthday."
+			);
+
+			//Return on cancel
+			if (name === null || name === "") {
+				return;
+			}
+
+			// Date string
+			var id = jsCalendar.tools.dateToString(current, date_format, "es");
+
+			// If no events, create list
+			if (!events.hasOwnProperty(id)) {
+				// Select date
+				calendar.select(current);
+				// Create list
+				events[id] = [];
+			}
+
+			// Add event
+			events[id].push({name : name});
+
+			// Refresh events
+			showEvents(current);
+		}
+
 		var showEvents = function(date){
 			// Date string
 			var id = jsCalendar.tools.dateToString(date, date_format, "es");
@@ -205,7 +236,7 @@
 			showEvents(date);
 		});
 
-		elements.addButton.addEventListener("click", function(){
+		document.getElementById("myBtn").addButton.addEventListener("click", function(){
 			// Get event name
 			var names = ["John", "Bob", "Anna", "George", "Harry", "Jack", "Alexander"];
 			var name = prompt(
